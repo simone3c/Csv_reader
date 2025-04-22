@@ -2,6 +2,11 @@
 #define CSV_READER
 #include "stdio.h"
 
+// ESP-IDF provides __getline() instead of getline() 
+#ifdef INTERNAL_GETLINE
+#define getline(...) __getline(__VA_ARGS__)
+#endif
+
 typedef struct{
     char** fields;
     size_t n_fields;
@@ -14,7 +19,7 @@ typedef struct{
 } csv_reader_t;
 
 
-int csv_reader_init(csv_reader_t* r, const char* file, char delimiter, char new_line);
+int csv_reader_init(csv_reader_t* r, const char* file, char delimiter);
 void csv_reader_deinit(csv_reader_t* r);
 int csv_reader_getheader(const csv_reader_t* r, csv_line_t* hdr);
 int csv_reader_getline(csv_reader_t* r, csv_line_t* line_ptr);

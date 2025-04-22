@@ -1,5 +1,6 @@
-test.c
 build/
+test.c
+test.csv
 
 # Prerequisites
 *.d
