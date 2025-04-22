@@ -1,4 +1,5 @@
 test.c
+build/
 
 # Prerequisites
 *.d
