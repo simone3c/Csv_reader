@@ -1,5 +1,7 @@
 CC ?= gcc
 
+lib: lib/libcsv_reader.a
+
 lib/libcsv_reader.a: obj/csv_reader.o
 	rm -rf $@
 	ar cru $@ $^
