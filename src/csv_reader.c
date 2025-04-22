@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
+#define getline(...) __getline(__VA_ARGS__)
+
 void csv_reader_linecpy(csv_line_t* dst,const csv_line_t* src){
     dst->n_fields = src->n_fields;
     dst->fields = calloc(dst->n_fields, sizeof(char*));
