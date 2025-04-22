@@ -87,7 +87,6 @@ int csv_reader_getheader(const csv_reader_t* r, csv_line_t* hdr){
 }
 
 int csv_reader_getfield(const csv_reader_t* r, const csv_line_t* line, const char* field, char** field_out, size_t* len){
-    assert(*field_out == NULL);
     for(int i = 0; i < r->hdr.n_fields; ++i){
         if(!strcmp(field, r->hdr.fields[i])){
             *len = strlen(line->fields[i]) + 1;
