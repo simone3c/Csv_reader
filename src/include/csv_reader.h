@@ -8,6 +8,7 @@
 #endif
 
 typedef struct{
+    char* line;
     char** fields;
     size_t n_fields;
 } csv_line_t;
@@ -26,6 +27,6 @@ int csv_reader_getline(csv_reader_t* r, csv_line_t* line_ptr);
 int csv_reader_getfield(const csv_reader_t* r, const csv_line_t* line, const char* field, char** field_out, size_t* len);
 
 void csv_reader_line_free(csv_line_t* line_ptr);
-void csv_reader_linecpy(csv_line_t* dst, const csv_line_t* src);
+int csv_reader_linecpy(csv_line_t* dst, const csv_line_t* src);
 
 #endif

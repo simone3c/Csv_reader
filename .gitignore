@@ -1,6 +1,7 @@
 build/
 test.c
 test.csv
+.vscode
 
 # Prerequisites
 *.d
