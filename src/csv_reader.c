@@ -14,6 +14,8 @@ int csv_reader_linecpy(csv_line_t* dst, const csv_line_t* src){
     if(!dst->line || !dst->fields)
         goto MALLOC_ERROR;
     
+    strcpy(dst->line, src->line);
+    
     while(i < src->n_fields){
         dst->fields[i] = (char*)malloc(strlen(src->fields[i]) + 1);
         if(!dst->fields[i])
@@ -152,7 +154,7 @@ int csv_reader_getheader(const csv_reader_t* r, csv_line_t* hdr){
     return csv_reader_linecpy(hdr, &r->hdr);
 }
 
-int csv_reader_getfield(const csv_reader_t* r, const csv_line_t* line, const char* field, char** field_out, size_t* len){
+int csv_reader_getfield(const csv_reader_t* r, const csv_line_t* line, const char* field, char** field_out){
     for(size_t i = 0; i < r->hdr.n_fields; ++i){
         if(!strcmp(field, r->hdr.fields[i])){
             size_t l = strlen(line->fields[i]) + 1;
@@ -161,7 +163,6 @@ int csv_reader_getfield(const csv_reader_t* r, const csv_line_t* line, const cha
             if(!*field_out)
                 return -1;
 
-            *len = l;
             strcpy(*field_out, line->fields[i]);
             return 0;
         }
