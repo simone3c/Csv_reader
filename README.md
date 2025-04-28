@@ -1,4 +1,4 @@
-# Csv_reader
+# csv_reader
 Simple csv reader written in C
 
 ## Usage notes
@@ -8,7 +8,7 @@ Simple csv reader written in C
 - Defining the preprocessor macro ```INTERNAL_GETLINE``` allows to use this parser inside ESP-IDF which provides ```__getline()``` instead of ```getline()```
 
 ## Usage
-Running Cmake build process will produce a static library under ```build/src/libCsv_reader.a``` which you have to link when building your project.
+Running Cmake build process will produce a static library under ```build/src/libcsv_reader.a``` which you have to link when building your project.
 
 ```c
 /*
