@@ -10,6 +10,8 @@ Simple csv reader written in C
 ## Usage
 Running Cmake build process will produce a static library under ```build/src/libcsv_reader.a``` which you have to link when building your project.
 
+You should also add ```src/include/``` to your include path in order to include ```src/include/csv_reader.h```.
+
 ```c
 /*
     file.csv:
